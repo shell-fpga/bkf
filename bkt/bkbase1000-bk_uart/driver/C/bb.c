@@ -15,7 +15,7 @@
 	 //														 bk_mode1: offset 4  rec_buf low  4 bytes
 	 //													   		  	   offset 5  rec_buf high 4 bytes	
 	 	
-
+#define BB_sys_freq  100000000
 	 
 #define bk_uart_index 1000
 
@@ -36,7 +36,7 @@ int bk_uart_read(u32 base_index , u8 rec_data[]);
 int bk_uart_read_1byte(u32 base_index , u8 *rec_data);
 int bk_uart_write_1byte(u32 base_index, u8 value);
 
-  /*********************************bk_iic bk_base:900*********************************************/
+  /*********************************bk_uart bk_base:1000*********************************************/
 void bk_uart_init(u32 base_index, u32 BandRate)
 {
 	u32 BandRate_value;
