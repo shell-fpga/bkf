@@ -1,16 +1,10 @@
-/*
- * Types.h
- *
- *  Created on: 2018年5月22日
- *      Author: zouyl
- */
 
 #ifndef TYPES_H_
 #define TYPES_H_
 #include <string.h>
 
 
-
+#ifdef linux
 typedef unsigned long long int u64;
 typedef unsigned long long int uint64;
 typedef long long int s64;
@@ -31,14 +25,7 @@ typedef unsigned char  u8;
 typedef unsigned char  U8;
 typedef unsigned char  uint8;
 typedef unsigned char  UINT8;
-
-
-//#define NULL 0
-
-//#define BOOL bool
-
-//#define FALSE false
-//#define TRUE true
+#endif
 
 
 

@@ -15,10 +15,6 @@
 #include <sys/mman.h>
 #include <fcntl.h>
 /************************** Function Definitions ***************************/
-
-
-u32 *map_base;
-
 int bk_send_data(u32 excute_baseaddr,u32 bk_index,u32 bk_data)
 {
 	 *(map_base+EXCUTE_S00_AXI_SLV_REG0_OFFSET) = 0x00;

@@ -16,19 +16,29 @@
  *
  */
 
+#ifdef linux
 #include <stdio.h>
-
-#include "bb_driver.h"
-#include "bkbase.h"
-#ifdef Linux
+#include <stdlib.h>
+#include <unistd.h>
+#include<sys/mman.h>
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<time.h>
 #else
+#include <stdio.h>
 #include "platform.h"
 #include "xil_printf.h"
 #endif
-int main()
-{
-    printf("Hello World\n");
-    board_init();
-    BB_init();
-    return 0;
-}
+#include "bb_driver.h"
+#include "Types.h"
+#include "bkbase.h"
+
+
+
+int main() {
+		board_init();
+		BB_init();
+		while(1);
+		return 0;
+	}

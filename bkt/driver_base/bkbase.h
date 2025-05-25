@@ -8,7 +8,7 @@
 #ifndef SRC_BKBASE_H_
 #define SRC_BKBASE_H_
 
-#define Linux
+//#define Linux
 
 #ifdef Linux
 	#include "Types.h"
@@ -24,6 +24,9 @@
 
 
 	#define BK_AXI_BASE_ADDR 0x43c00000
+
+	u32 * map_base;
+
 
 	int bk_send_data(u32 excute_baseaddr,u32 bk_index,u32 bk_data);
 	u32 get_bk_status();
@@ -46,7 +49,7 @@
 #define EXCUTE_S00_AXI_SLV_REG2_OFFSET 24
 #define EXCUTE_S00_AXI_SLV_REG3_OFFSET 28
 
-#define BK_AXI_BASE_ADDR XPAR_BK_AXI2CFG_0_BASEADDR
+#define BK_AXI_BASE_ADDR XPAR_BKT_FORWARDER_0_BASEADDR
 
 /**************************** Type Definitions *****************************/
 /**
