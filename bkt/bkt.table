@@ -1,0 +1,192 @@
+/***************************************-----------------bkt_shell table----------------*********************************************/
+/*****************************************************************************************************************/
+/*************************************** Golbal Time Node Definitions ********************************************/
+/*****************************************************************************************************************/
+    /** Index      Vaild bits     	 Name       	     	     Desrciption **/
+	 //  0           bit31-0         GTN                         Golbal Time Node
+/*****************************************************************************************************************/
+/*************************************** Module Base Cmd  Definitions(DESR) ********************************************/
+/*****************************************************************************************************************/
+	// Encoding method: Gary Code
+    /** VALUE      Vaild bits     	 Name       	     	     Desrciption **/
+     //  0000		bit3-0			 DISABLE					Module doosen't work
+	 //	 0001		bit3-0			 ENABLE						Module work
+	 //	 0011		bit3-0			 SILENT					 	Holde cur status
+	 //	 0010		bit3-0			 REUSE						Wake up
+	 //	 0110		bit3-0			 x
+	 //	 0111		bit3-0			 x
+	 //	 0101		bit3-0			 x
+	 //	 0100		bit3-0			 x
+	 //	 1100		bit3-0			 x
+	 //	 1101		bit3-0			 x
+	 //	 1111		bit3-0			 x
+	 //	 1110		bit3-0			 x
+	 //	 1010		bit3-0			 x
+	 //	 1011		bit3-0			 x
+	 //	 1001		bit3-0			 x
+	 //	 1000		bit3-0			 x
+/*****************************************************************************************************************/
+/*************************************** bk_mode  Definitions********************************************/
+/*****************************************************************************************************************/
+    /** Mode           Value        Desrciption **/
+	//attation: bk_mode use bk_index value is 0 bit is 3-1 and "bkindex:0-bit0" is reseved.
+	//bk_mode0          3'd0		default mode:  back status real-time.
+	//bk_mode1          3'd1		offest  mode:  back status by special bk_index.
+	//bk_mode2          3'd1		timer   mode:  back status as some periodic.
+	//bk_mode3          3'd2		reseved
+/*****************************************************************************************************************/
+/*************************************** Variables Definitions **************************************************/
+/*****************************************************************************************************************/
+	/** Index        Vaild bits     	 Name       	     	     Desrciption **/
+    /*********************************bk_interface_cfg bkt_base:100*********************************************/
+	//  ascripiton: shell
+	//  type: IP_xilinx22.1
+	//  function:  this module can match bkp interface  to send data to anyone of the general extern communication interface. need bkp interface in bki folder.
+	//  update:  2025.3.12
+	//  0		 bit0		  	DESR				    
+	//  1		 bit31-0		bkp_send_data		 	data buf
+	//  2        bit0           read_done               use to clean the data_ready status 
+	//  3			    		read_offest(1)		 	use to get read data
+	//           bit31-0        bk_status(0 1)          bk_mode0 :  bit0    data_ready  bit1 send busy  
+	//											  		bk_mode1 :  bit31-0 bkp_read_data
+
+    /*********************************bk_frame_parser bk_base:200*********************************************/
+    // ascription: shell
+    // type: RTL
+	// function :  this module use for parsing some frame witch had frame length info or fixed frame size with magic header.
+	// update: 2024.5.12
+	//  0			bit3-0          DESR
+	//  1			bit31-0			magic_header0		    magic_header0 bytes0-3; this module can  max support 32 bytes magic_header with big_end.
+	//  2			bit31-0			magic_header1		    magic_header1 bytes4-7;
+	//  3			bit31-0			magic_header2		    magic_header2 bytes8-11;
+	//  4			bit31-0			magic_header3		    magic_header3 bytes12-15;
+	//  5			bit31-0			magic_header4		    magic_header4 bytes16-19;
+	//  6			bit31-0			magic_header5		    magic_header5 bytes20-23;
+	//  7			bit31-0			magic_header6		    magic_header6 bytes24-27;
+	//  8			bit31-0			magic_header7		    magic_header7 bytes28-31;
+	//  9           bit31-0         length_info             bit31-25 reseved; bit24: inner_legth_en;  bit:23:8  frame_totalleninfo_size; bit7:0 frame_totalleninfo_index;
+	//  10          bit31-0         ex_total_length         when inner_legth_en is 0  this ex value enable
+	//  11			bit31-0         ext_store_size          unity: bytes;extern bram_size
+    //              bit31-0         bk_status               pasered_frame_nums.
+
+   /*********************************m001_slip2d bk_base:300*********************************************/
+	//  ascripiton: shell
+	//  type: RTL
+    //  function : un in 100M clock this module is used for m001 series
+	//  update:  2025.3.14
+	//  0			bit3-0					DESR    		           enable   
+	//  1			bit-7-0					radar_pics			       max support 256 pics radar
+	//  2			bit31-0					horizontal_slip_times      -
+	//  3			bit31-0					vertical_slip_times        -
+	//  4			bit31-0					h_pwm_freq 				   HZ
+	//  5			bit31-0					h_radar_ss_time            MS
+	//  6			bit31-0					h_motor_step_scale         0.2 mm / h_mini_step_nums
+	//  7			bit31-0					h_mini_step_nums           -
+	//  8			bit31-0					v_pwm_freq				   HZ
+	//  9			bit31-0					v_motor_wait_time		   MS
+	//  0			bit31-0					v_motor_step_scale         0.2 mm / v_mini_step_nums
+	//  1			bit31-0					v_mini_step_nums		   -
+	//  2			bit0				    h_sw_dir_init			   0 or 1 only can be change before excute_start
+	//  3			bit0					v_sw_dir				   0 or 1 can be change at any time
+	//  4			bit0					excute_start			   -
+	//  5			bit0					force_stop				   -
+	//  6           bit7-0                  extern_ctrl                extern start\swtich\up\dowm\left\right\stop
+	 	                                                                //	start       = 8'b00010001;
+     	                                                                //	switch      = 8'b00010010;
+     	                                                                //	up          = 8'b00010011;
+     	                                                                //	down        = 8'b00010100;
+     	                                                                //	left        = 8'b00010101;
+     	                                                                //	right       = 8'b00010110;
+     	                                                                //	stop        = 8'b00100000;
+	// 	 	        bit0-31                 bk_status			     //
+                                                                     //bit3-0  4'b0001  indicate module has work finished; 
+                                                                     //bit3-0  4'b0000  indicates module ready to work;
+                                                                     //bit7-4  4'b1111  work error
+                                                                     //bit7-4  4'b0001  module is working
+                                                                     //bit7-4  4'b0000  modue is free 
+																	 
+
+	/*********************************bk_extb1  bk_base:400*********************************************/
+	//  ascripiton: shell
+	//  type: RTL
+    //  function : switch 1 of N bk_status also you can expand more status
+	//  update:  2025.3.14
+	//  0          bit0          DESR             //extb1_enable
+	//  1          bit3-0        led              //4 leds
+	//  2          bit23-0       smg              //6 smg  4bit every 1 smg  value can be  0-9       
+	//  3          bit31-0       beep_D           //beep  dds D
+	//  4          bit0          use_lcdex        //use_lcdex
+    //             bk_status                      //bit 4-0 btn value
+
+	/*********************************bk_status_sw bk_base:500*********************************************/
+	//  ascripiton: shell
+	//  type: RTL
+    //  function : switch 1 of N bk_status also you can expand more status
+	//  update:  2025.3.12
+    //  0        bit0-3          DESR                       
+    //  1        bit0            sw                  
+
+
+ 	/*********************************BK_GPIO bk_base:600*********************************************/
+     // ascription: fwj
+	 // type: RTL
+	 // function : 
+	 // update: 2025.3.11
+	 //  0         bit0          DESR             
+	 //  1         bit31-0       gpo_mask         out mask
+	 //  2         xxx           gpo_value(1)     read offset       
+	 //  3         bit31-0       gpo              io_out
+        //                           bk_status        bkmode0 : gpi value io_in
+        //					    	bkmode1 : 1902  gpo_value
+    /*********************************bk_spi bk_base:800*********************************************/
+	//  ascripiton: shell
+	//  type: RTL
+    //  function : this module is standard Motorola SPI Master mode, it can custon define ss nums.
+	//  update:  2025.3.12
+	//  0          bit0            DESR   					DESR
+	//  1          bit1-0          spi_mode                 SPI cp mode bit0:CPOL, bit1:CPHA
+	//  2          bit0            spi_rw_mode				rw_mode 0 is write, 1 is read
+	//  3          bit31-0         spi_T_1bit               how many sys_clock to send 1 bit data(1/bps)
+	//  4          bit7-0          spi_send_buf			    buf to store send_data(1 byte)
+	//  5  		   bit7-0          spi_rec_buf(1)           buf to sore  rec_data(1 byte)
+	//  6          bit0            spi_start			    start send data whitch is wirtern in send buf 
+    //  7          bit7-0          SS_sel					set whitch ss will be used
+    //  8          bit1-0          spi_continue_done        bit1: end this commiuncate, bit1: done cur req.
+    //  9          bit0            spi_rec_clean            clean the rec_vaild
+	//             bit31-0         bk_status                bk_mode0: bit0 spi_busy ��bit1 continue_req, bit2 rec_vaild
+	//														bk_mode1: offset 6  rec_buf value
+
+  /*********************************bk_iic bk_base:900*********************************************/
+	 //  ascripiton: shell
+	 //  type: RTL
+	 //  function : this module is standard IIC interface, it can  define single mode or contiune mode.
+	 //  update:  2025.3.12
+	 //  0          bit0            DESR   					 
+	 //  1          bit0            iic_rw_mode				 rw_mode 0 is write, 1 is read
+	 //  2          bit31-0         iic_T_1it                how many sys_clock to send 1 bit data(1/bps)
+	 //  3          bit7-0          iic_send_buf			 buf to store send_data(1 byte)
+	 //  4		    bit7-0          iic_rec_buf(1)           buf to sore  rec_data(1 byte)
+	 //  5          bit0            iic_start			     start send data whitch is wirtern in send buf
+     //  6          bit0            noack_clear				 clear the noack warning form bk mode0
+	 //  7          bit1-0          iic_continue_done		 bit1: done this commiuncate, continue_mode will stop when this bit is setted.
+	 //  8          bit0            iic_rec_clean            clean the rec_vaild
+	 //                                                      bit0: done continue_req;Needing send new data to send buf before set is index only used in contiune mode.
+	 //             bit31-0         bk_status                bk_mode0: bit0 iic_busy; bit1 write_noack; bit2 read noack; bit3 continue_req.
+	 //														 bk_mode1: offset 6  rec_buf value
+	 
+   /*********************************bk_uart bk_base:1000*********************************************/
+	 //  ascripiton: shell
+	 //  type: RTL
+	 //  function :
+	 //  update:  2025.3.12
+	 //  0          bit0            DESR   					 
+	 //  1          bit7-0          BandRate_bit		     how many clocks to send 1bit data
+	 //  2          bit7-0          send_buf				 buf to store send_data(1 byte)
+	 //  3          bit0            send_start				 start tx
+	 //  4 		    bit7-0          rec_buf(1)               buf to sore  rec_data(4 byte)
+	 //  5  	    bit7-0          rec_buf(2)               buf to sore  rec_data(4 byte)
+	 //  6          bit0       	    rec_clean				 clean the rx_nums    
+	 //             bit31-0         bk_status                bk_mode0: bit0 tx_busy   bit3-1 rx_nums    
+	 //														 bk_mode1: offset 4  rec_buf low  4 bytes
+	 //													   		  	   offset 5  rec_buf high 4 bytes	
+	 	

@@ -1,0 +1,12 @@
+板卡名称：bkb220
+板卡所属公司：shell
+板卡信息提供者：huangyue、laixiaojun、
+板卡关键信息描述：DDR3512M、EMMC、QSPI 、RJ45以太网，USB2.0、
+				  SD卡、PS串口、集成jtag调试器，5VDC供电、
+				  type-c5V供电，4组PMOD， 按键、led、HDMI-out，RGB585彩屏接口，
+				  音频输入输出接口等。
+板卡其他资料：xilinx board file 文件 ：  bkb220_v2.0（支持vivado2018.3+）； B220的管脚全约束文件：pin.xdc
+板卡其他资料连接：
+板卡审核日期：2025.5.25
+板卡信息审核者：huangyue
+其他：

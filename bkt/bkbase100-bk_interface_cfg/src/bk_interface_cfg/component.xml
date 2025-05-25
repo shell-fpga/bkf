@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <spirit:vendor>user.org</spirit:vendor>
+  <spirit:library>user</spirit:library>
+  <spirit:name>bk_interface_cfg</spirit:name>
+  <spirit:version>1.0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>rst_n</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rst_n</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RST_N.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>clk</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>clk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>m_bkp</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="user" spirit:name="BKP" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="user" spirit:name="BKP_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>BKP_data</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>Bkp_Data_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>BKP_busy</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>Bkp_Busy_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>BKP_ready</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>Bkp_Ready_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>s_bkp</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="user" spirit:name="BKP" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="user" spirit:name="BKP_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>BKP_busy</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>Bkp_Busy_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>BKP_data</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>Bkp_Data_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>BKP_ready</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>Bkp_Ready_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  <spirit:model>
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagesynthesis</spirit:name>
+        <spirit:displayName>Synthesis</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:synthesis</spirit:envIdentifier>
+        <spirit:language>Verilog</spirit:language>
+        <spirit:modelName>bk_interface_cfg</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>1f83782d</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagebehavioralsimulation</spirit:name>
+        <spirit:displayName>Simulation</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:simulation</spirit:envIdentifier>
+        <spirit:language>Verilog</spirit:language>
+        <spirit:modelName>bk_interface_cfg</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>1f83782d</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_xpgui</spirit:name>
+        <spirit:displayName>UI Layout</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:xgui.ui</spirit:envIdentifier>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_xpgui_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>17a72cd0</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+    </spirit:views>
+    <spirit:ports>
+      <spirit:port>
+        <spirit:name>clk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rst_n</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>bkt_ready_i</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>bkt_index_i</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">31</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>bkt_value_i</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">31</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>Bkp_Ready_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>Bkp_Data_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.bkp_data_with&apos;)) - 1)">7</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>Bkp_Busy_i</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>Bkp_Ready_i</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>Bkp_Data_i</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.bkp_data_with&apos;)) - 1)">7</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>Bkp_Busy_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>bk_status</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">31</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+    </spirit:ports>
+    <spirit:modelParameters>
+      <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
+        <spirit:name>bkp_data_with</spirit:name>
+        <spirit:displayName>Bkp Data With</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.bkp_data_with">8</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>BKT_BASE</spirit:name>
+        <spirit:displayName>Bkt Base</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.BKT_BASE">100</spirit:value>
+      </spirit:modelParameter>
+    </spirit:modelParameters>
+  </spirit:model>
+  <spirit:choices>
+    <spirit:choice>
+      <spirit:name>choice_list_9d8b0d81</spirit:name>
+      <spirit:enumeration>ACTIVE_HIGH</spirit:enumeration>
+      <spirit:enumeration>ACTIVE_LOW</spirit:enumeration>
+    </spirit:choice>
+  </spirit:choices>
+  <spirit:fileSets>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>bk_interface_cfg.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_1f83782d</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>bk_interface_cfg.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>xgui/bk_interface_cfg_v1_0.tcl</spirit:name>
+        <spirit:fileType>tclSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_17a72cd0</spirit:userFileType>
+        <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+  </spirit:fileSets>
+  <spirit:description>bk_interface_cfg_v1_0</spirit:description>
+  <spirit:parameters>
+    <spirit:parameter>
+      <spirit:name>bkp_data_with</spirit:name>
+      <spirit:displayName>Bkp Data With</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.bkp_data_with">8</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>Component_Name</spirit:name>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">bk_interface_cfg_v1_0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>BKT_BASE</spirit:name>
+      <spirit:displayName>Bkt Base</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.BKT_BASE">100</spirit:value>
+    </spirit:parameter>
+  </spirit:parameters>
+  <spirit:vendorExtensions>
+    <xilinx:coreExtensions>
+      <xilinx:supportedFamilies>
+        <xilinx:family xilinx:lifeCycle="Production">virtex7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">qvirtex7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">kintex7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">kintex7l</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">qkintex7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">qkintex7l</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">akintex7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">artix7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">artix7l</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">aartix7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">qartix7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">zynq</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">qzynq</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">azynq</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">spartan7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">aspartan7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">zynquplus</xilinx:family>
+      </xilinx:supportedFamilies>
+      <xilinx:taxonomies>
+        <xilinx:taxonomy>/UserIP</xilinx:taxonomy>
+      </xilinx:taxonomies>
+      <xilinx:displayName>bk_interface_cfg_v1_0</xilinx:displayName>
+      <xilinx:definitionSource>package_project</xilinx:definitionSource>
+      <xilinx:coreRevision>8</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2025-03-12T09:52:27Z</xilinx:coreCreationDateTime>
+      <xilinx:tags>
+        <xilinx:tag xilinx:name="nopcore"/>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@17731d9_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@728ada50_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@663fef6a_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ef4dea5_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4c64c95f_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18462a72_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b0204c3_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6bd4d495_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73907994_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@59addbce_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4883563f_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2adae148_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1c334ccf_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@26b99a4b_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@11f5a878_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1edf9134_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5f5e15a5_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4737f327_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@57d716ba_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@577ad240_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@129683b0_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@306ca8e4_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@77bd9b82_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@398c10b6_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@72c23725_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b50fb5d_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3db06db2_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@338c8ffb_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@57639b6_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@396e08d_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1b29ca7c_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@37b4dbe5_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d9ce372_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@562645a8_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1b386632_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6b9961d2_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@bd80912_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@32064ac8_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@60a6c239_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@247f1d33_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7064a286_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7c75d13_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@288c0b8e_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4c185df0_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@725269bc_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@131bb0b6_ARCHIVE_LOCATION">/home/yue/prj/vivado_prj/z7_lite/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2a7aba79_ARCHIVE_LOCATION">d:/xilinx_prj/vivado20.2_prj/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@485f8b43_ARCHIVE_LOCATION">d:/xilinx_prj/vivado20.2_prj/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4c86068f_ARCHIVE_LOCATION">d:/xilinx_prj/vivado20.2_prj/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f637fa2_ARCHIVE_LOCATION">d:/xilinx_prj/vivado20.2_prj/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5346d8c7_ARCHIVE_LOCATION">d:/xilinx_prj/vivado20.2_prj/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a4e0cf0_ARCHIVE_LOCATION">d:/xilinx_prj/vivado20.2_prj/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@30238d25_ARCHIVE_LOCATION">d:/xilinx_prj/vivado20.2_prj/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7e799229_ARCHIVE_LOCATION">d:/xilinx_prj/vivado20.2_prj/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@27a25315_ARCHIVE_LOCATION">d:/xilinx_prj/vivado20.2_prj/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e5019c1_ARCHIVE_LOCATION">d:/xilinx_prj/vivado20.2_prj/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7b3744b7_ARCHIVE_LOCATION">d:/xilinx_prj/vivado20.2_prj/z7_lite_id9_slave_v1_dbg1/userip/bk_interface_cfg_v1</xilinx:tag>
+      </xilinx:tags>
+    </xilinx:coreExtensions>
+    <xilinx:packagingInfo>
+      <xilinx:xilinxVersion>2022.1</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="55ac355d"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="03d484a8"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="9f2b2c40"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="6b7afc46"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="3680211f"/>
+    </xilinx:packagingInfo>
+  </spirit:vendorExtensions>
+</spirit:component>
