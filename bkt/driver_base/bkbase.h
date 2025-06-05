@@ -1,5 +1,5 @@
 /*
- * BK_axi2cfg.h
+ * bkbase.h
  *
  *  Created on:2024.11.6
  *      Author: yue
@@ -8,10 +8,13 @@
 #ifndef SRC_BKBASE_H_
 #define SRC_BKBASE_H_
 
-//#define Linux
+#define Linux
+// #define urltra_scale
+
 
 #ifdef Linux
 	#include "Types.h"
+
 
 	#define EXCUTE_S00_AXI_SLV_ap_REG0_OFFSET 0
 	#define EXCUTE_S00_AXI_SLV_ap_REG1_OFFSET 4
@@ -23,9 +26,11 @@
 	#define EXCUTE_S00_AXI_SLV_REG3_OFFSET 28/4
 
 
+#ifdef urltra_scale
+	#define BK_AXI_BASE_ADDR 0x80000000
+#else
 	#define BK_AXI_BASE_ADDR 0x43c00000
-
-	u32 * map_base;
+#endif
 
 
 	int bk_send_data(u32 excute_baseaddr,u32 bk_index,u32 bk_data);

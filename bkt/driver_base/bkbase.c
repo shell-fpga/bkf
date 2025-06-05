@@ -1,5 +1,5 @@
 /*
- * BK_axi2cfg.c
+ * bkbase.c
 
  *
  *  Created on: 2024.11.6
@@ -14,6 +14,10 @@
 #include <stdlib.h>
 #include <sys/mman.h>
 #include <fcntl.h>
+#include <stdio.h>
+
+
+	u32 * map_base;
 /************************** Function Definitions ***************************/
 int bk_send_data(u32 excute_baseaddr,u32 bk_index,u32 bk_data)
 {

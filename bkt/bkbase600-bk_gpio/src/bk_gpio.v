@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
- /*********************************bk_gpio_v1 bk_base:1900*********************************************/
+ /*********************************bk_gpio_v1 bk_base:600*********************************************/
 	//  ascripiton: shell
 	//  type: RTL
     //  function : 
@@ -30,7 +30,7 @@
     //            bk_status                      // 0 : gpi value io_in
                                                  // 1 : 1902  gpo_value
 module bk_gpio#(
-    parameter BKP_BASE_index = 1900,
+    parameter BKP_BASE_index = 600,
 	parameter nums = 5
 )(
 	input wire clk,

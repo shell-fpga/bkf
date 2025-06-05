@@ -49,7 +49,6 @@
 #define get_u32_bit(n,index) ((u8) ((n>>index) & 0x01))
 
 
-
 	/*********************************bk_status_sw bk_base:500*********************************************/
 	 // ascription: fwj
 	 // type: RTL
