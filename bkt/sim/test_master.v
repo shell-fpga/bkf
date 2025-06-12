@@ -18,52 +18,103 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
-module test_master(
+module test_master (
 	input wire clk,
 	input wire rst_n,
 	
 	// the bk system port  MBKP
-    output wire BkpCfg_Ready_o,
-    output wire [31:0] BkpCfg_DataIndex_o,  
-    output wire [31:0] BkpCfg_DataValue_o  
+     
+    output  wire                   bkt_ready_o,
+    output  wire            [31:0] bkt_index_o,
+    output  wire            [31:0] bkt_data_o
 
 );
 	
 	localparam index_max = 4500; // base 
-	localparam cnt0_delay = 10*index_max;
+	localparam cnt0_delay = 20;
 	
 
-	
-	reg cnt0_gate;
-	always @(posedge clk or negedge rst_n)
+    reg [63:0]cnt_delay;
+    always @(posedge clk)
 	if(!rst_n)
-		cnt0_gate <= 1'd1;
+	   cnt_delay <= 1'b0;
+	else if(cnt_delay == 64'd4710)
+	   cnt_delay <= cnt_delay;
+	else
+	   cnt_delay <= cnt_delay + 1'd1;
+	   
+	
+	wire start;
+	assign start =    (cnt_delay == 64'd4710) ? 1'b1 : 1'b0;
+	
+	
+	reg start_z1 ,start_z2;
+	always @(posedge clk)
+	if(!rst_n)
+	   begin
+	       start_z1 <= 'd0;
+	       start_z2 <= 'd0;
+	   end 
+	else
+	   begin
+	       start_z1 <= start;
+	       start_z2 <= start_z1;
+	   end 
+	   
+	 wire start_pedge;
+	 assign   start_pedge = start_z1 & !start_z2;
+ 
+    reg [31:0] cnt0;
+    always @(posedge clk)
+	if(!rst_n)
+	   cnt0 <= 'd0;
 	else if(cnt0 == cnt0_delay - 1'd1)
-		cnt0_gate <= 1'b0;
+	   cnt0 <= 1'b0;
 	else
-		cnt0_gate <= cnt0_gate;
-		
-	reg [31:0] cnt0;
-	always @(posedge clk or negedge rst_n)
+	   cnt0 <= cnt0 + 1'd1;
+	   
+    
+	reg cnt1_gate;
+	always @(posedge clk)
 	if(!rst_n)
-		cnt0 <= 'd0;
-	else if(cnt0_gate)
-		cnt0 <= cnt0 + 1'd1;
+		cnt1_gate <= 1'd0;
+    else if(start_pedge)
+        cnt1_gate <= 1'b1;
+	else if(cnt0 == cnt0_delay - 1'd1)
+	   begin
+	       if(cnt1 == index_max)
+	           cnt1_gate <= 1'b0;
+	       else
+	           cnt1_gate <= cnt1_gate;
+	   end 
 	else
-		cnt0 <= 'd0;
-
+		cnt1_gate <= cnt1_gate;
+		
+	reg [31:0] cnt1;
+	always @(posedge clk)
+	if(!rst_n)
+		cnt1 <= 'd0;
+    else if(cnt1_gate == 1'b0)
+        cnt1 <= 'd0;
+	else if(cnt0 == cnt0_delay - 1'd1)
+		cnt1 <= cnt1 + 1'd1;
+	else
+		cnt1 <= cnt1;
+  
+    
 	
 	wire [31:0] bk_index_p1;	
-	assign bk_index_p1 = cnt0 /10 + 1;
+	assign bk_index_p1 = cnt1 + 1;
 
 	/*************************************************************************/
-	//add tb.v at here
+	// add tb.v  at here
+	
+	
 	/*************************************************************************/
 	//combine part
-	assign BkpCfg_Ready_o = ((cnt0 +5)%10 == 'd0) ?  1'b1 : 1'b0;
-    assign BkpCfg_DataIndex_o = 
-    assign BkpCfg_DataValue_o = 
+	assign bkt_ready_o = ((cnt1_gate == 1'b1) && (cnt0 >= 'd15)) ?  1'b1 : 1'b0;
+    assign bkt_index_o = bk_index_base700;
+    assign bkt_data_o  = bk_data_base700;
     
     
     endmodule
